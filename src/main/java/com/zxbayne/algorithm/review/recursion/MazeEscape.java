@@ -12,7 +12,7 @@ public class MazeEscape {
     public static final int WALL = 1;
     // 在迷宫中表示走过的点
     public static final int WALKED = 2;
-    // 在迷宫中表示该店已经被探索过了，但是走不通
+    // 在迷宫中表示该点已经被探索过了，但是走不通
     public static final int OUTREACH = 3;
 
     private final Position start;

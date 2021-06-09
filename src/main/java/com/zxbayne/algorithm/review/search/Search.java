@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Search {
     /**
      * @param sequence 一个序列
-     * @param target 被查找的元素值
+     * @param target   被查找的元素值
      * @return target值在sequence序列中的下标，如果没找到则返回-1
      */
     public static int linearSearch(int[] sequence, int target) {
@@ -22,7 +22,7 @@ public class Search {
 
     /**
      * @param sequence 一个序列
-     * @param target 被查找的元素值
+     * @param target   被查找的元素值
      * @return target值在sequence序列中的下标，如果没找到则返回-1
      */
     public static int binarySearch(int[] sequence, int target) {
@@ -39,11 +39,9 @@ public class Search {
 
             if (target > sequence[mid]) {
                 left = mid + 1;
-            }
-            else if (target < sequence[mid]) {
+            } else if (target < sequence[mid]) {
                 right = mid - 1;
-            }
-            else {
+            } else {
                 result = mid;
                 break;
             }
