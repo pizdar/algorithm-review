@@ -75,35 +75,27 @@ public class Sort {
     public static void quickSort(int[] array, int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(array, begin, end);
-            quickSort(array, begin, partitionIndex);
+            quickSort(array, begin, partitionIndex - 1);
             quickSort(array, partitionIndex + 1, end);
         }
     }
 
     private static int partition(int[] array, int begin, int end) {
-        int pivot = array[(begin + end) / 2];
+        int pivot = array[begin];
 
-        // 初始化双指针，指向前一个元素
-        int leftPointer = begin - 1;
-        int rightPointer = end + 1;
-        while (true) {
-
-            do {
-                leftPointer++;
-            } while (array[leftPointer] < pivot);
-
-            do {
-                rightPointer--;
-            } while (array[rightPointer] > pivot);
-
-            if (leftPointer >= rightPointer) {
-                return rightPointer;
+        while (begin < end) {
+            while (begin < end && array[end] >= pivot) {
+                end--;
             }
+            array[begin] = array[end];
 
-            int temp = array[leftPointer];
-            array[leftPointer] = array[rightPointer];
-            array[rightPointer] = temp;
+            while (begin < end && array[begin] <= pivot) {
+                begin++;
+            }
+            array[end] = array[begin];
         }
+        array[begin] = pivot;
+        return begin;
     }
 
     public static void mergeSort(int[] array, int begin, int end) {
